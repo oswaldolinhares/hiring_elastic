@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: dev.dockerfile
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: sh -c "bundle exec rake db:create db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/app
     ports:
@@ -35,4 +35,3 @@ volumes:
     
 networks:
   app-network:
-
