@@ -8,6 +8,7 @@ module HiringElastic
   class Application < Rails::Application
     config.load_defaults 7.0
     config.generators.system_tests = nil
+    config.i18n.default_locale = :'pt-BR'
 
     # Generate rspec and factories
     config.generators do |g|
