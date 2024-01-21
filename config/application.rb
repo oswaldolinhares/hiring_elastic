@@ -9,6 +9,7 @@ module HiringElastic
     config.load_defaults 7.0
     config.generators.system_tests = nil
     config.i18n.default_locale = :'pt-BR'
+    config.time_zone = 'Brasilia'
 
     # Generate rspec and factories
     config.generators do |g|
