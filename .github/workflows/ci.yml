@@ -1,0 +1,46 @@
+name: ci
+
+on: [push]
+
+jobs:
+  vm-job:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    env:
+      DB_HOST: "127.0.0.1"
+      DB_PORT: "5432"
+      DB_POOL: "5"
+      DB_DATABASE: "hiring_elastic"
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "postgres"
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Ruby 3.2.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bundle install
+      - name: Setup database
+        run: |
+          sudo apt-get install libpq-dev
+          bundler exec rails db:create RAILS_ENV=test
+          bundler exec rails db:migrate RAILS_ENV=test
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
