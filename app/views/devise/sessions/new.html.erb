@@ -1,0 +1,37 @@
+<div class="flex items-center justify-center min-h-screen bg-cover px-1 py-2">
+  <div class="w-full md:max-w-md lg:max-w-lg mx-auto">
+    <div class="bg-white shadow-md rounded-2xl p-6 md:p-10">
+      <h2 class="mb-8 text-3xl text-center text-custom-black font-bold"><%= t('.login') %></h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-5">
+          <%= f.label :email, class: "block text-custom-black text-sm font-bold mb-2" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded-lg w-full py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
+        </div>
+
+        <div class="mb-5">
+          <%= f.label :password, class: "block text-custom-black text-sm font-bold mb-2" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "shadow appearance-none border rounded-lg w-full py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="mb-5">
+            <label class="flex items-center">
+              <%= f.check_box :remember_me, class: "form-checkbox h-5 w-5 text-custom-green" %>
+              <span class="text-sm text-custom-black ml-2"><%= t('.remember_me') %></span>
+            </label>
+          </div>
+        <% end %>
+
+        <div class="mb-8">
+          <%= f.submit t('.login'), class: "bg-custom-green hover:bg-custom-green-light active:bg-custom-green-dark text-white font-bold py-3 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline transition duration-300" %>
+        </div>
+      <% end %>
+
+      <div class="flex flex-col items-end space-y-2">
+        <%= link_to t('.forgot_password'), new_password_path(resource_name), class: "text-custom-green hover:underline hover:text-custom-green-dark transition duration-300" %>
+        <%= link_to t('.sign_up'), new_registration_path(resource_name), class: "text-custom-green hover:underline hover:text-custom-green-dark transition duration-300" %>
+      </div>
+    </div>
+  </div>
+</div>
