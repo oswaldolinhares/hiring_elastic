@@ -20,11 +20,18 @@ services:
       context: .
       dockerfile: dev.dockerfile
     command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && \
+                         bundle install && \
                          rails assets:clobber && \
                          rails assets:precompile && \
                          rake assets:clean && \
                          rake tailwindcss:build && \
-                         bundle exec rake db:create db:migrate && \
+                        if [ \"${DROP_DB}\" = 'true' ]; then \
+                          echo 'Dropando o banco de dados...'; \
+                          bundle exec rake db:drop db:create db:migrate; \
+                        else \
+                          echo 'Criando e migrando o banco de dados...'; \
+                          bundle exec rake db:create db:migrate; \
+                        fi && \                          
                          rails db:seed && \
                          bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -35,6 +42,8 @@ services:
       - db
     networks:
       - app-network
+    environment:
+      - DROP_DB=${DROP_DB}
 
 volumes:
   pgdata:
