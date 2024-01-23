@@ -213,3 +213,8 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  controllers:
+    applicant:
+      created_success: 'Applicant was successfully created.'
+      updated_success: 'Applicant was successfully updated.'
+      destroyed_success: 'Applicant was successfully destroyed.'

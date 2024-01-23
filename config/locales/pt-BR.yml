@@ -221,3 +221,8 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  controllers:
+    applicant:
+      created_success: 'O candidato foi criado com sucesso.'
+      updated_success: 'O candidato foi atualizado com sucesso.'
+      destroyed_success: 'O candidato foi excluído com sucesso.'
