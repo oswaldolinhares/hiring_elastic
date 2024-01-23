@@ -32,4 +32,20 @@ RSpec.describe Applicant do
       end
     end
   end
+
+  describe '.calculate_inss' do
+    context 'when salary is 3000' do
+      let(:salary) { 3000 }
+
+      it 'calculates the correct INSS deduction' do
+        result = described_class.calculate_inss(salary)
+        expect(result[:deduction]).to eq(281.62)
+      end
+
+      it 'calculates the correct INSS rate' do
+        result = described_class.calculate_inss(salary)
+        expect(result[:rate]).to eq(12)
+      end
+    end
+  end
 end

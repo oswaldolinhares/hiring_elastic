@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   }
 
   resources :applicants
+  post '/calculate_inss', to: 'inss_calculations#calculate'
 end
