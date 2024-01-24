@@ -1,72 +1,72 @@
 <div id="<%= dom_id applicant %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.name') %>:</strong>
     <%= applicant.name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Cpf:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.cpf') %>:</strong>
     <%= applicant.cpf %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Birth date:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.birth_date') %>:</strong>
     <%= applicant.birth_date %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.address') %>:</strong>
     <%= applicant.address %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Number:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.number') %>:</strong>
     <%= applicant.number %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Neighborhood:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.neighborhood') %>:</strong>
     <%= applicant.neighborhood %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">City:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.city') %>:</strong>
     <%= applicant.city %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">State:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.state') %>:</strong>
     <%= applicant.state %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Zip:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.zip') %>:</strong>
     <%= applicant.zip %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Phone:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.phone') %>:</strong>
     <%= applicant.phone %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Salary:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.salary') %>:</strong>
     <%= applicant.salary %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Inss contribution rate:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.inss_contribution_rate') %>:</strong>
     <%= applicant.inss_contribution_rate %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Salary deduction:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.applicants.salary_deduction') %>:</strong>
     <%= applicant.salary_deduction %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this applicant", applicant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this applicant", edit_applicant_path(applicant), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t('views.applicants.button.show'), applicant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t('views.applicants.button.edit'), edit_applicant_path(applicant), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

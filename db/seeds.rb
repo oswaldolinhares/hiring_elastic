@@ -19,13 +19,13 @@ salary_ranges = [
 ]
 
 30.times do
-  salary = rand(salary_ranges.sample).floor(2)
+  salary = rand(salary_ranges.sample)
   inss_calculation = Applicant.calculate_inss(salary)
   
   FactoryBot.create(
     :applicant,
-    salary: salary,
-    inss_contribution_rate: inss_calculation[:rate],
+    salary: salary.floor(2),
+    inss_contribution_rate: inss_calculation[:rate].floor(2),
     salary_deduction: inss_calculation[:deduction]
   )
 end

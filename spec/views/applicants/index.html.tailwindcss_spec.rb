@@ -19,14 +19,14 @@ RSpec.describe 'applicants/index' do
   context 'when rendering personal information' do
     it 'displays the correct personal information' do
       render
-      assert_fields(%w[Name Cpf Phone])
+      assert_fields(%w[Nome CPF Telefone])
     end
   end
 
   context 'when rendering address information' do
     it 'displays the correct address information' do
       render
-      assert_fields(%w[Address Number Neighborhood City State Zip])
+      assert_fields(%w[Endereço Número Bairro Cidade Estado CEP])
     end
   end
 

@@ -4,6 +4,9 @@
       user:
         one: Usuário
         other: Usuários
+      applicant:
+        one: Candidato
+        other: Candidatos
     attributes:
       user:
         email: Email

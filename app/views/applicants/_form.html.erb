@@ -1,79 +1,79 @@
 <%= form_with(model: applicant, class: "contents") do |form| %>
   <% if applicant.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+      <h2><%= pluralize(applicant.errors.count, t('activerecord.errors.models.applicant.one')) %> <%= t('activerecord.errors.models.applicant.other') %> <%= t('activerecord.errors.messages.prohibited_this_record_from_being_saved', record: t('activerecord.models.applicant.one')) %>:</h2>
 
       <ul>
-        <% applicant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% applicant.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label :name, t('views.applicants.name') %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :cpf %>
+    <%= form.label :cpf, t('views.applicants.cpf') %>
     <%= form.text_field :cpf, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :birth_date %>
+    <%= form.label :birth_date, t('views.applicants.birth_date') %>
     <%= form.date_field :birth_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :address %>
+    <%= form.label :address, t('views.applicants.address') %>
     <%= form.text_field :address, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :number %>
+    <%= form.label :number, t('views.applicants.number') %>
     <%= form.text_field :number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :neighborhood %>
+    <%= form.label :neighborhood, t('views.applicants.neighborhood') %>
     <%= form.text_field :neighborhood, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :city %>
+    <%= form.label :city, t('views.applicants.city') %>
     <%= form.text_field :city, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :state %>
+    <%= form.label :state, t('views.applicants.state') %>
     <%= form.text_field :state, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :zip %>
+    <%= form.label :zip, t('views.applicants.zip') %>
     <%= form.text_field :zip, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :phone %>
+    <%= form.label :phone, t('views.applicants.phone') %>
     <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div data-controller="salary">
     <div class="my-5">
-      <%= form.label :salary %>
+      <%= form.label :salary, t('views.applicants.salary') %>
       <%= form.text_field :salary, data: { action: "input->salary#calculate", salary_target: "salary" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :inss_contribution_rate %>
+      <%= form.label :inss_contribution_rate, t('views.applicants.inss_contribution_rate') %>
       <%= form.text_field :inss_contribution_rate, readonly: true, id: "inss_contribution_rate", data: { salary_target: "contributionRate" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :salary_deduction %>
+      <%= form.label :salary_deduction, t('views.applicants.salary_deduction') %>
       <%= form.text_field :salary_deduction, readonly: true, id: "salary_deduction", data: { salary_target: "deduction" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
   </div>
