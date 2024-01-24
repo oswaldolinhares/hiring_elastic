@@ -3,58 +3,38 @@
 class ApplicantsController < BaseController
   before_action :set_applicant, only: %i[show edit update destroy]
 
-  # GET /applicants or /applicants.json
   def index
     @applicants = Applicant.all
   end
 
-  # GET /applicants/1 or /applicants/1.json
   def show; end
 
-  # GET /applicants/new
   def new
     @applicant = Applicant.new
   end
 
-  # GET /applicants/1/edit
   def edit; end
 
-  # POST /applicants or /applicants.json
   def create
     @applicant = Applicant.new(applicant_params)
-
-    respond_to do |format|
-      if @applicant.save
-        format.html { redirect_to applicant_url(@applicant), notice: I18n.t('controllers.applicant.created_success') }
-        format.json { render :show, status: :created, location: @applicant }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @applicant.errors, status: :unprocessable_entity }
-      end
+    if save_applicant
+      redirect_with_notice(applicant_url(@applicant), 'created_success')
+    else
+      render_with_errors(:new)
     end
   end
 
-  # PATCH/PUT /applicants/1 or /applicants/1.json
   def update
-    respond_to do |format|
-      if @applicant.update(applicant_params)
-        format.html { redirect_to applicant_url(@applicant), notice: I18n.t('controllers.applicant.updated_success') }
-        format.json { render :show, status: :ok, location: @applicant }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @applicant.errors, status: :unprocessable_entity }
-      end
+    if update_applicant
+      redirect_with_notice(applicant_url(@applicant), 'updated_success')
+    else
+      render_with_errors(:edit)
     end
   end
 
-  # DELETE /applicants/1 or /applicants/1.json
   def destroy
     @applicant.destroy
-
-    respond_to do |format|
-      format.html { redirect_to applicants_url, notice: I18n.t('controllers.applicant.destroyed_success') }
-      format.json { head :no_content }
-    end
+    redirect_with_notice(applicants_url, 'destroyed_success')
   end
 
   private
@@ -66,5 +46,21 @@ class ApplicantsController < BaseController
   def applicant_params
     params.require(:applicant).permit(:name, :cpf, :birth_date, :address, :number, :neighborhood, :city, :state,
                                       :zip, :phone, :salary, :inss_contribution_rate, :salary_deduction)
+  end
+
+  def save_applicant
+    @applicant.save
+  end
+
+  def update_applicant
+    @applicant.update(applicant_params)
+  end
+
+  def redirect_with_notice(path, notice_key)
+    redirect_to path, notice: I18n.t("controllers.applicant.#{notice_key}")
+  end
+
+  def render_with_errors(action)
+    render action, status: :unprocessable_entity
   end
 end
