@@ -53,7 +53,13 @@ class ApplicantsController < BaseController
   end
 
   def update_applicant
-    @applicant.update(applicant_params)
+    @applicant.update(applicant_params.except(:salary)).tap do |updated|
+      enqueue_update_salary_job if updated
+    end
+  end
+
+  def enqueue_update_salary_job
+    UpdateSalaryJob.perform_later(@applicant.id, applicant_params[:salary]) if applicant_params[:salary].present?
   end
 
   def redirect_with_notice(path, notice_key)

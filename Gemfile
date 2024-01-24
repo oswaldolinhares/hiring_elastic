@@ -15,6 +15,7 @@ gem "importmap-rails"
 gem "tailwindcss-rails"
 gem "jbuilder"
 gem "redis", "~> 4.0"
+gem 'sidekiq'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "dotenv-rails", groups: %i[development production test]
