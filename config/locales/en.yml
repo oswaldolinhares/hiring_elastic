@@ -218,3 +218,10 @@ en:
       created_success: 'Applicant was successfully created.'
       updated_success: 'Applicant was successfully updated.'
       destroyed_success: 'Applicant was successfully destroyed.'
+  views:
+    pagination:
+      first: "First"
+      last: "Last"
+      previous: "Previous"
+      next: "Next"
+      truncate: "..."

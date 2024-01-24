@@ -4,7 +4,11 @@ class ApplicantsController < BaseController
   before_action :set_applicant, only: %i[show edit update destroy]
 
   def index
-    @applicants = Applicant.all
+    @applicants = if params[:page]
+                    Applicant.page(params[:page]).per(5)
+                  else
+                    Applicant.all
+                  end
   end
 
   def show; end

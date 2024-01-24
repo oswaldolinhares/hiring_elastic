@@ -226,3 +226,10 @@ pt-BR:
       created_success: 'O candidato foi criado com sucesso.'
       updated_success: 'O candidato foi atualizado com sucesso.'
       destroyed_success: 'O candidato foi excluído com sucesso.'
+  views:
+    pagination:
+      first: "Primeiro"
+      last: "Último"
+      previous: "Anterior"
+      next: "Seguinte"
+      truncate: "..."

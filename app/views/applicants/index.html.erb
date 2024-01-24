@@ -11,4 +11,10 @@
   <div id="applicants" class="min-w-full">
     <%= render @applicants %>
   </div>
+
+  <% if params[:page] %>
+    <div class="pagination">
+      <%= paginate @applicants %>
+    </div>
+  <% end %>
 </div>
