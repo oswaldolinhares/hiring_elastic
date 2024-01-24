@@ -61,22 +61,24 @@
     <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :salary %>
-    <%= form.text_field :salary, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <div data-controller="salary">
+    <div class="my-5">
+      <%= form.label :salary %>
+      <%= form.text_field :salary, data: { action: "input->salary#calculate", salary_target: "salary" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :inss_contribution_rate %>
-    <%= form.text_field :inss_contribution_rate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="my-5">
+      <%= form.label :inss_contribution_rate %>
+      <%= form.text_field :inss_contribution_rate, readonly: true, id: "inss_contribution_rate", data: { salary_target: "contributionRate" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :salary_deduction %>
-    <%= form.text_field :salary_deduction, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class="my-5">
+      <%= form.label :salary_deduction %>
+      <%= form.text_field :salary_deduction, readonly: true, id: "salary_deduction", data: { salary_target: "deduction" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", id: "submit_button" %>
   </div>
 <% end %>

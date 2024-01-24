@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ApplicantsController < ApplicationController
+class ApplicantsController < BaseController
   before_action :set_applicant, only: %i[show edit update destroy]
 
   # GET /applicants or /applicants.json

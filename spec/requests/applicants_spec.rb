@@ -15,6 +15,7 @@ RSpec.describe '/applicants' do
     it 'renders a successful response' do
       Applicant.create! valid_attributes
       get applicants_url
+
       expect(response).to be_successful
     end
   end
@@ -23,6 +24,7 @@ RSpec.describe '/applicants' do
     it 'renders a successful response' do
       applicant = Applicant.create! valid_attributes
       get applicant_url(applicant)
+
       expect(response).to be_successful
     end
   end
@@ -30,6 +32,7 @@ RSpec.describe '/applicants' do
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_applicant_url
+
       expect(response).to be_successful
     end
   end
@@ -38,6 +41,7 @@ RSpec.describe '/applicants' do
     it 'renders a successful response' do
       applicant = Applicant.create! valid_attributes
       get edit_applicant_url(applicant)
+
       expect(response).to be_successful
     end
   end
@@ -52,6 +56,7 @@ RSpec.describe '/applicants' do
 
       it 'redirects to the created applicant' do
         post applicants_url, params: { applicant: valid_attributes }
+
         expect(response).to redirect_to(applicant_url(Applicant.last))
       end
     end
@@ -65,6 +70,7 @@ RSpec.describe '/applicants' do
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post applicants_url, params: { applicant: invalid_attributes }
+
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -80,6 +86,7 @@ RSpec.describe '/applicants' do
         applicant = Applicant.create! valid_attributes
         patch applicant_url(applicant), params: { applicant: new_attributes }
         applicant.reload
+
         expect(applicant.name).to eq('Godofredo Roberto')
       end
 
@@ -87,6 +94,7 @@ RSpec.describe '/applicants' do
         applicant = Applicant.create! valid_attributes
         patch applicant_url(applicant), params: { applicant: new_attributes }
         applicant.reload
+
         expect(response).to redirect_to(applicant_url(applicant))
       end
     end
@@ -95,6 +103,7 @@ RSpec.describe '/applicants' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         applicant = Applicant.create! valid_attributes
         patch applicant_url(applicant), params: { applicant: invalid_attributes }
+
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -111,6 +120,7 @@ RSpec.describe '/applicants' do
     it 'redirects to the applicants list' do
       applicant = Applicant.create! valid_attributes
       delete applicant_url(applicant)
+
       expect(response).to redirect_to(applicants_url)
     end
   end
