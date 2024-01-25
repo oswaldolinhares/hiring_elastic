@@ -4,8 +4,8 @@ class ApplicantsController < BaseController
   before_action :set_applicant, only: %i[show edit update destroy]
 
   def index
-    @applicants = if params[:page]
-                    Applicant.page(params[:page]).per(5)
+    @applicants = if params[:paginated].present?
+                    Applicant.page(params[:page] || 1).per(5)
                   else
                     Applicant.all
                   end
@@ -38,7 +38,7 @@ class ApplicantsController < BaseController
 
   def destroy
     @applicant.destroy
-    redirect_with_notice(applicants_url, 'destroyed_success')
+    redirect_with_notice(applicants_path(paginated: true), 'destroyed_success')
   end
 
   private

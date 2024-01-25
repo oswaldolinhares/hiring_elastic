@@ -121,7 +121,7 @@ RSpec.describe '/applicants' do
       applicant = Applicant.create! valid_attributes
       delete applicant_url(applicant)
 
-      expect(response).to redirect_to(applicants_url)
+      expect(response).to redirect_to(applicants_url(paginated: true))
     end
   end
 end

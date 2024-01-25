@@ -12,3 +12,18 @@
         email: Email
         created_at: Criado em
         updated_at: Atualizado em
+    errors:
+      models:
+        applicant:
+          attributes:
+            cpf:
+              blank: "não pode ficar em branco"
+              taken: "já está em uso" # Exemplo para quando o CPF já está em uso
+          one: "erro impediu que este candidato fosse salvo" # Mensagem para um erro
+          other: "%{count} erros impediram que este candidato fosse salvo" # Mensagem para múltiplos erros
+      template:
+        body: "Os seguintes campos precisam ser corrigidos:"
+        header:
+          one: "Não foi possível salvar este %{model}: Um erro"
+          other: "Não foi possível salvar este %{model}: %{count} erros"
+          prohibited_this_record_from_being_saved: "não foi possível salvar este %{record}"

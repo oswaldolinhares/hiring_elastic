@@ -245,7 +245,7 @@ pt-BR:
       zip: "CEP"
       phone: "Telefone"
       salary: "Salário"
-      inss_contribution_rate: "Taxa de Contribuição do INSS"
+      inss_contribution_rate: "Contribuição do INSS"
       salary_deduction: "Dedução de Salário"
       new_this_applicant: "Novo Candidato"
       show_this_applicant: "Mostrar este candidato"
@@ -257,3 +257,4 @@ pt-BR:
         show: "Mostra Candidato"
         edit: "Editar Candidato"
         new: "Novo Candidato"
+        submit: "Salvar Candidato"

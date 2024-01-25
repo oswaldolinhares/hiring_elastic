@@ -1,0 +1,26 @@
+<div class="bg-blue-800">
+  <nav class="flex items-center justify-between flex-wrap p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <span class="font-semibold text-xl tracking-tight">Nome do App</span>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <div class="group inline-block relative">
+          <a href="#" class="text-white hover:text-gray-300 mr-4">
+            Candidato
+          </a>
+          <div class="absolute hidden text-gray-700 pt-1 group-hover:block">
+          <%= link_to 'Cadastrar', new_applicant_path, class: "rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" %>
+          <%= link_to 'Listar', applicants_path(paginated: true), class: "bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" %>
+          </div>
+        </div>
+        <a href="#relatorios" class="text-white hover:text-gray-300 mr-4">
+          Relatórios
+        </a>
+        <a href="#logout" class="text-white hover:text-gray-300">
+          Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>

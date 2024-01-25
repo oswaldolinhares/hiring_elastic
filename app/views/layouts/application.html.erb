@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-auth bg-gray-100 text-gray-800">
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <script>
+      setTimeout(function() {
+        const notice = document.querySelector('#notice');
+        if (notice && notice.dataset.noticeVisible === 'true') {
+          notice.style.display = 'none';
+        }
+      }, 5000);
+    </script>
   </body>
 </html>

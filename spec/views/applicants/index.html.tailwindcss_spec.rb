@@ -8,7 +8,7 @@ RSpec.describe 'applicants/index' do
     assign(:applicants, create_list(:applicant, 2))
   end
 
-  let(:cell_selector) { Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td' }
+  let(:cell_selector) { 'tr>td' }
 
   def assert_fields(fields, count: 2)
     fields.each do |field|
@@ -16,24 +16,10 @@ RSpec.describe 'applicants/index' do
     end
   end
 
-  context 'when rendering personal information' do
-    it 'displays the correct personal information' do
-      render
-      assert_fields(%w[Nome CPF Telefone])
-    end
-  end
-
-  context 'when rendering address information' do
-    it 'displays the correct address information' do
-      render
-      assert_fields(%w[Endereço Número Bairro Cidade Estado CEP])
-    end
-  end
-
   context 'when rendering financial information' do
     it 'displays the correct financial information' do
       render
-      assert_fields(['9580.0', '12.0', '300.0'])
+      assert_fields(%w[Visualizar Editar Excluir])
     end
   end
 end

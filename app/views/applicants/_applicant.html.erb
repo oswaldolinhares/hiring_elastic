@@ -1,72 +1,76 @@
-<div id="<%= dom_id applicant %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.name') %>:</strong>
-    <%= applicant.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.cpf') %>:</strong>
-    <%= applicant.cpf %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.birth_date') %>:</strong>
-    <%= applicant.birth_date %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.address') %>:</strong>
-    <%= applicant.address %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.number') %>:</strong>
-    <%= applicant.number %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.neighborhood') %>:</strong>
-    <%= applicant.neighborhood %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.city') %>:</strong>
-    <%= applicant.city %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.state') %>:</strong>
-    <%= applicant.state %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.zip') %>:</strong>
-    <%= applicant.zip %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.phone') %>:</strong>
-    <%= applicant.phone %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.salary') %>:</strong>
-    <%= applicant.salary %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.inss_contribution_rate') %>:</strong>
-    <%= applicant.inss_contribution_rate %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.applicants.salary_deduction') %>:</strong>
-    <%= applicant.salary_deduction %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to t('views.applicants.button.show'), applicant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to t('views.applicants.button.edit'), edit_applicant_path(applicant), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+<div id="<%= dom_id applicant %>" class="bg-white shadow-md rounded my-6 p-6">
+  <% if notice.present? %>
+    <p id="notice" class="bg-green-50 text-green-500 px-3 py-2 font-medium rounded-lg mt-3 absolute top-0 left-1/2 transform -translate-x-1/2 z-50" data-notice-visible="true">
+      <%= notice %>
+    </p>
   <% end %>
+
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-2/5 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.name') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.name %></span>
+    </div>
+    <div class="w-1/5 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.cpf') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.cpf %></span>
+    </div>
+    <div class="w-1/5 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.birth_date') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.birth_date %></span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-3/5 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.address') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.address %></span>
+    </div>
+    <div class="flex w-2/5 -mx-2">
+      <div class="w-1/2 px-2 mb-4">
+        <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.number') %>:</strong>
+        <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.number %></span>
+      </div>
+      <div class="w-1/2 px-2 mb-4">
+        <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.neighborhood') %>:</strong>
+        <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.neighborhood %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.city') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.city %></span>
+    </div>
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.state') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.state %></span>
+    </div>
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.zip') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.zip %></span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-1/4 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.phone') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.phone %></span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.salary') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.salary %></span>
+    </div>
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.inss_contribution_rate') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.inss_contribution_rate %></span>
+    </div>
+    <div class="w-1/3 px-2 mb-4">
+      <strong class="text-xs block font-medium mb-1"><%= t('views.applicants.salary_deduction') %>:</strong>
+      <span class="min-h-[33px] block shadow rounded-md border border-gray-200 px-3 py-2 w-full text-xs"><%= applicant.salary_deduction %></span>
+    </div>
+  </div>
 </div>

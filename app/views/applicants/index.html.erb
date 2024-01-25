@@ -1,20 +1,43 @@
-<div class="w-full">
+<main class="container mx-auto px-5 flex justify-center items-center min-h-screen w-full">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p id="notice" class="bg-green-50 text-green-500 px-3 py-2 font-medium rounded-lg mt-3 absolute top-0 left-1/2 transform -translate-x-1/2 z-50" data-notice-visible="true">
+      <%= notice %>
+    </p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%= t('activerecord.models.applicant.other')%></h1>
-    <%= link_to t('views.applicants.button.new'), new_applicant_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div id="applicants" class="min-w-full bg-white shadow-md rounded my-6 -mt-10"> 
+    <table class="min-w-full table-auto">
+      <thead>
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">Nome</th>
+          <th class="py-3 px-6 text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        <% @applicants.each do |applicant| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left whitespace-nowrap">
+              <%= applicant.name %>
+            </td>
+            <td class="py-3 px-6 text-center flex justify-center items-center space-x-2">
+              <%= link_to 'Visualizar', applicant_path(applicant), class: "text-green-500 hover:text-green-700 mr-2" %>
+              <%= link_to 'Editar', edit_applicant_path(applicant), class: "text-blue-500 hover:text-blue-700 mr-2" %>
+              <%= link_to 'Excluir', applicant_path(applicant), method: :delete, data: { confirm: 'Tem certeza?' }, class: "text-red-500 hover:text-red-700" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+        <% if @applicants.respond_to?(:total_pages) %>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="py-3 px-6 text-center">
+              <div class="pagination flex justify-center">
+                <%= paginate @applicants %>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      <% end %>
+    </table>
   </div>
-
-  <div id="applicants" class="min-w-full">
-    <%= render @applicants %>
-  </div>
-
-  <% if params[:page] %>
-    <div class="pagination">
-      <%= paginate @applicants %>
-    </div>
-  <% end %>
-</div>
+</main>
