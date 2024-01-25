@@ -49,6 +49,14 @@ pt-BR:
       signed_in: "Login efetuado com sucesso!"
       signed_out: "Saiu com sucesso."
       already_signed_out: "Saiu com sucesso."
+      new:
+        login: "Entrar"
+        email: "Email"
+        password: "Senha"
+        remember_me: "Lembre-se de mim"
+        forgot_password: "Esqueceu sua senha?"
+        sign_up: "Cadastre-se"
+        
     unlocks:
       send_instructions: "Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta."
       send_paranoid_instructions: "Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos."

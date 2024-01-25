@@ -5,14 +5,14 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="mb-5">
-          <%= f.label :email, class: "block text-custom-black text-sm font-bold mb-2" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded-lg w-full py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
-        </div>
-
-        <div class="mb-5">
-          <%= f.label :password, class: "block text-custom-black text-sm font-bold mb-2" %>
-          <%= f.password_field :password, autocomplete: "current-password", class: "shadow appearance-none border rounded-lg w-full py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
-        </div>
+        <%= f.label :email, class: "block text-custom-black text-sm font-bold mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded-lg w-96 py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
+      </div>
+      
+      <div class="mb-5">
+        <%= f.label :password, class: "block text-custom-black text-sm font-bold mb-2" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "shadow appearance-none border rounded-lg w-96 py-3 px-4 text-custom-black leading-tight focus:outline-none focus:shadow-outline focus:border-custom-green focus:ring-custom-green" %>
+      </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="mb-5">
@@ -24,7 +24,7 @@
         <% end %>
 
         <div class="mb-8">
-          <%= f.submit t('.login'), class: "bg-custom-green hover:bg-custom-green-light active:bg-custom-green-dark text-white font-bold py-3 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline transition duration-300" %>
+         <%= f.submit t('.login'), class: "bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline transition duration-300" %>
         </div>
       <% end %>
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicantsController < BaseController
+  before_action :authenticate_user!
   before_action :set_applicant, only: %i[show edit update destroy]
 
   def index

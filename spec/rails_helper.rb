@@ -23,6 +23,8 @@ end
 RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.include Warden::Test::Helpers
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   config.fixture_path = Rails.root.join('spec/fixtures')
   config.use_transactional_fixtures = true

@@ -1,7 +1,7 @@
 <div class="bg-blue-800">
   <nav class="flex items-center justify-between flex-wrap p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">Nome do App</span>
+      <span class="font-semibold text-xl tracking-tight">Banco do Braziu</span>
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
@@ -17,9 +17,7 @@
         <a href="#relatorios" class="text-white hover:text-gray-300 mr-4">
           Relatórios
         </a>
-        <a href="#logout" class="text-white hover:text-gray-300">
-          Logout
-        </a>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "text-white hover:text-gray-300" %>
       </div>
     </div>
   </nav>

@@ -3,8 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Applicant management', :js do
+  let!(:user) { create(:user) }
+
   before do
     driven_by(:selenium_chrome_headless)
+    login_as(user)
   end
 
   def fill_in_salary_field(salary)

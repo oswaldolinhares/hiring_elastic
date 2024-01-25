@@ -3,12 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe '/applicants' do
+  let!(:user) { create(:user) }
   let(:valid_attributes) do
     attributes_for(:applicant)
   end
 
   let(:invalid_attributes) do
     attributes_for(:applicant).merge(cpf: nil)
+  end
+
+  before do
+    sign_in user
   end
 
   describe 'GET /index' do
