@@ -17,6 +17,7 @@ gem "jbuilder"
 gem "redis", "~> 4.0"
 gem 'jquery-rails'
 gem 'sidekiq'
+gem 'ferrum'
 gem 'kaminari'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
