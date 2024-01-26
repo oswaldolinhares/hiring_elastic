@@ -43,6 +43,7 @@ services:
     networks:
       - app-network
     environment:
+      - BROWSER_PATH=/usr/bin/chromium
       - DROP_DB=${DROP_DB}
 
 volumes:
