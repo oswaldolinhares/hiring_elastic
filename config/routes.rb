@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   }
 
   resources :applicants
+  resources :salary_distributions, only: [:index]
   post '/calculate_inss', to: 'inss_calculations#calculate'
 end
