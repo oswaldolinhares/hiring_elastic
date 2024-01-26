@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :applicants
   resources :salary_distributions, only: [:index]
+  get 'salary_distributions/download_pdf', to: 'salary_distributions#download_pdf'
   post '/calculate_inss', to: 'inss_calculations#calculate'
 end
